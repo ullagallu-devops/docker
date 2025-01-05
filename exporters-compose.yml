@@ -1,3 +1,7 @@
+networks:
+  rb:
+    driver: bridge
+    
 services:
   # Nginx Exporter
   nginx-exporter:
