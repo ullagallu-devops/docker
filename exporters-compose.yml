@@ -1,9 +1,4 @@
-networks:
-  rb:
-    driver: bridge
-    
 services:
-  # Nginx Exporter
   nginx-exporter:
     image: nginx/nginx-prometheus-exporter:latest
     container_name: nginx-exporter
@@ -14,7 +9,6 @@ services:
     command:
       - "-nginx.scrape-uri=http://web/nginx_status"
 
-  # RabbitMQ Exporter
   rabbitmq-exporter:
     image: kbudde/rabbitmq-exporter
     container_name: rabbitmq-exporter
@@ -23,7 +17,6 @@ services:
     ports:
       - "9419:9419"
 
-  # MongoDB Exporter
   mongodb-exporter:
     image: bitnami/mongodb-exporter:latest
     container_name: mongodb-exporter
@@ -34,7 +27,6 @@ services:
     command:
       - "--mongodb.uri=mongodb://mongo:27017"
 
-  # MySQL Exporter
   mysql-exporter:
     image: prom/mysqld-exporter
     container_name: mysql-exporter
@@ -45,7 +37,6 @@ services:
     environment:
       - DATA_SOURCE_NAME=root:RoboShop@1@(mysql:3306)/
 
-  # Redis Exporter
   redis-exporter:
     image: oliver006/redis_exporter
     container_name: redis-exporter
@@ -53,3 +44,7 @@ services:
       - rb
     ports:
       - "9121:9121"
+
+networks:
+  rb:
+    external: true

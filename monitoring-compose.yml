@@ -1,7 +1,7 @@
 networks:
   rb:
     driver: bridge
-    
+
 services:
   prometheus:
     image: prom/prometheus:latest
@@ -30,3 +30,7 @@ services:
 
 volumes:
   grafana-data:
+
+networks:
+  rb:
+    external: true
