@@ -29,7 +29,7 @@ RUN echo 'server { \
     location / { \
         try_files $uri $uri/ =404; \
     } \
-    access_log /var/log/nginx/access.log main; \
+    access_log /var/log/nginx/access.log; \
     error_log /var/log/nginx/error.log; \
 }' > /etc/nginx/sites-available/default
 EXPOSE 80
