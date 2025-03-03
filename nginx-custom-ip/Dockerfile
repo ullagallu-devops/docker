@@ -29,8 +29,8 @@ RUN echo 'server { \
     location / { \
         try_files $uri $uri/ =404; \
     } \
-    access_log /var/log/nginx/access.log; \
-    error_log /var/log/nginx/error.log; \
+    access_log /dev/stdout; \
+    error_log /dev/stderr; \
 }' > /etc/nginx/sites-available/default
 EXPOSE 80
 CMD ["/bin/bash", "-c", "/entrypoint.sh && nginx -g 'daemon off;'"]
