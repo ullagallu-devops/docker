@@ -30,7 +30,7 @@ RUN echo 'server { \
         try_files $uri $uri/ =404; \
     } \
     access_log /var/log/nginx/access.log main; \
-    error_log /var/log/nginx/error.log \
+    error_log /var/log/nginx/error.log; \
 }' > /etc/nginx/sites-available/default
 EXPOSE 80
 CMD ["/bin/bash", "-c", "/entrypoint.sh && nginx -g 'daemon off;'"]
